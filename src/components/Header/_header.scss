@@ -1,0 +1,177 @@
+.header-holder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.32);
+    z-index: 1;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        justify-content: space-between;
+
+        .logo {
+            margin-right: 30px;
+            position: relative;
+            z-index: 99;
+
+            img {
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+        .hamburger {
+            cursor: pointer;
+            position: relative;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .hamburger-item {
+                width: 40px;
+                height: 3px;
+                background-color: $primary-color;
+                color: #fff;
+                transition: all 0.2s;
+                margin: 0 auto;
+
+                &:nth-child(2) {
+                    margin: 5px 0;
+                }
+            }
+
+            &:hover {
+                .hamburger-item {
+                    &:nth-child(2) {
+                        margin: 8px 0;
+                        width: 20px;
+                    }
+                }
+            }
+
+            &.rotate-hamburger {
+                .hamburger-item {
+                    &:nth-child(2) {
+                        // opacity: 0;
+                        display: none;
+                    }
+
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translateX(3px);
+                    }
+
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translateX(2px);
+                    }
+                }
+            }
+        }
+    }
+
+    .menu {
+        background-color: #222327;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        right: 0;
+        bottom: 0;
+        padding: 60px 0;
+        transition: left 0.5s;
+        transition-delay: 0.5s;
+        z-index: 9;
+
+        .nav-items {
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100%;
+
+            .nav-item {
+                text-align: center;
+
+                a {
+                    font-size: 70px;
+                    font-weight: 600;
+                    line-height: 60px;
+                    text-transform: uppercase;
+                    color: rgba(255, 255, 255, 0.2);
+                    transition: color 0.6s;
+                    position: relative;
+                    padding: 0 15px;
+                    display: inline-block;
+
+                    &:before {
+                        content: '';
+                        height: 2px;
+                        width: 0;
+                        position: absolute;
+                        background-color: #f5deb3;
+                        left: 0;
+                        transition: width 0.5s;
+                        top: 50%;
+                        transform: translateY(-50%)
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                        color: #f5deb3;
+
+                        &:before {
+                            width: 100%;
+                        }
+
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+
+                    &:after {
+                        content: attr(title);
+                        display: block;
+                        opacity: 0.7;
+                        // margin: -12px 0 0;
+                        font-size: 12px;
+                        line-height: 1;
+                        font-weight: normal;
+                        z-index: 999999999;
+                        font-weight: 600;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    .icon {
+                        font-size: 16px;
+                        vertical-align: middle;
+
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.move-menu {
+    left: 0 !important;
+}
+
+.navigation {
+    position: relative;
+    z-index: 99;
+}
+
+.banner {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: #f5deb3;
+    transition: left 0.5s;
+}

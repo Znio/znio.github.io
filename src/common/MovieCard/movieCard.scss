@@ -1,0 +1,130 @@
+.movie-holder {
+    padding: 0;
+    position: relative;
+    min-height: 366px;
+    position: relative;
+
+    @include for-tablet-portrait-up {
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .movie {
+        position: absolute;
+        bottom: -100%;
+        opacity: 0;
+        animation: slideTopAnimation 1s forwards ease-in;
+        animation-delay: 0.5s;
+        // border-radius: 10px;
+        overflow: hidden;
+
+        &:hover {
+            .movie-banner {
+                transform: scale(1.1);
+                transition: all 0.5s;
+            }
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.37);
+
+            @include for-tablet-portrait-up {
+                display: none;
+            }
+        }
+
+        .movie-banner {
+            width: 100%;
+            height: 365px;
+            object-fit: cover;
+            object-position: center;
+            overflow: hidden;
+
+            @include for-tablet-portrait-up {
+                height: 315px;
+                border-radius: 10px;
+            }
+        }
+
+        .movie-content {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: $secondary-color;
+
+            @include for-tablet-portrait-up {
+                position: static;
+            }
+
+            .movie-title {
+                font-weight: 700;
+                font-size: 15px;
+                text-transform: capitalize;
+                @include ellipsis(1);
+                color: $secondary-color;
+
+                @include for-tablet-portrait-up {
+                    font-size: 13px;
+                }
+            }
+
+            .movie-info {
+                font-size: 13px;
+                display: flex;
+
+                @include for-tablet-portrait-up {
+                    font-size: 12px;
+                }
+
+                * {
+                    padding: 0 8px;
+                    position: relative;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        height: 100%;
+                        width: 1px;
+                        right: 0;
+                        background-color: $primary-text-color;
+
+                        @include for-tablet-portrait-up {
+                            background-color: $secondary-color;
+                        }
+
+                    }
+
+                    &:first-child {
+                        padding-left: 0;
+                    }
+
+                    &:last-child {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                .movie-ratings {
+                    .fa-star {
+                        font-size: 18px;
+                        color: rgba(255, 255, 99, 0.7);
+                    }
+                }
+            }
+
+        }
+    }
+}

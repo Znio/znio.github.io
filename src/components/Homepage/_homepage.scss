@@ -1,0 +1,72 @@
+.homepage-holder {
+
+    .banner-holder {
+
+        .search-holder {
+
+            position: absolute;
+            // top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -90px;
+
+            .search-content {
+                background-color: rgba(53, 54, 54, 0.9);
+                padding: 20px 0;
+
+
+                @include for-tablet-portrait-up {
+                    padding: 50px 70px;
+                    border-radius: 5px;
+                }
+
+                .btn {
+                    width: 100%;
+                }
+
+
+                .form-group {
+                    .form-control {
+                        background-color: transparent;
+                        border-color: #0e1014;
+                        border: 0;
+                        border-bottom: 1px solid $secondary-color;
+                        border-radius: 0;
+                        color: $primary-text-color;
+
+                        &::placeholder {
+                            color: rgba(171, 171, 171, 0.6);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .movie-list-holder {
+        margin-top: 170px;
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .see-all {
+                a {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $primary-color;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .movie-list-content {
+
+        }
+    }
+}
